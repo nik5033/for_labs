@@ -1,0 +1,235 @@
+    1  ды
+    2  ls
+    3  mkdir labs
+    4  ls
+    5  cd labs
+    6  ls
+    7  echo "# for_labs" >> README.md
+    8  git init
+    9  git add README.md
+   10  git commit -m "first commit"
+   11  git branch -M master
+   12  git remote add origin https://github.com/nik5033/for_labs.git
+   13  git push -u origin master
+   14  ls
+   15  echo "# for_labs" >> README.md
+   16  git init
+   17  git add README.md
+   18  git commit -m "first commit"
+   19  git branch -M master
+   20  git remote add origin https://github.com/nik5033/for_labs.git
+   21  git push -u origin master
+   22  ls
+   23  cd ..
+   24  ls
+   25  cd labs
+   26  ls
+   27  ls -la
+   28  cd ./git
+   29  cd .git/
+   30  ls
+   31  cd ..
+   32  ls
+   33  git push -u origin master
+   34  cd.
+   35  cd ..
+   36  ls
+   37  ssh-keygen 
+   38  ls
+   39  cd hime
+   40  cd home
+   41  ls
+   42  cd ..
+   43  ls
+   44  cd nikita/
+   45  ls
+   46  cd .ssh/
+   47  ls
+   48  cat id_rsa.pub 
+   49  cd ..
+   50  ls
+   51  cd labs/
+   52  ls
+   53  vim README.md 
+   54  ls
+   55  lssf
+   56  dgls
+   57  ls
+   58  clear
+   59  ls
+   60  ды
+   61  ls
+   62  cd labs/
+   63  ls
+   64  cat README.md 
+   65  ls
+   66  git add
+   67  git add .
+   68  git status
+   69  ls
+   70  vim README.md 
+   71  ls
+   72  cd .git/
+   73  cd ..
+   74  ls
+   75  git sta
+   76  git status 
+   77  ls
+   78  cd .git/
+   79  ls
+   80  cd ..
+   81  git push 
+   82  ls
+   83  cat README.md 
+   84  git add .
+   85  git commit  -m "My name and surname"
+   86  vim README.md 
+   87  git add .
+   88  git commit -m "Name and surname"
+   89  git push origin for_labs
+   90  git push origin for_labs/
+   91  git push origin for_labs
+   92  git status 
+   93  git push 
+   94  ls
+   95  vim README.md 
+   96  git add .
+   97  git commit -m "My name and surname"
+   98  git push
+   99  poweroff
+  100  whoami
+  101  whoaim
+  102  whoami
+  103  echo "Hello World"
+  104  date
+  105  cal
+  106  man cal
+  107  cal -3
+  108  history
+  109  clear
+  110  pwd
+  111  cd /
+  112  cd ..
+  113  pwd
+  114  ls
+  115  ls  /var
+  116  cd
+  117  cd ..
+  118  pwd
+  119  ls -l
+  120  cd
+  121  mkdir fruits
+  122  cd /
+  123  mkdir ~/animals
+  124  touch /tmp/temp
+  125  cd ~/fruits/
+  126  man touch
+  127  touch apple banana pineaple lion
+  128  touch ../animals/man touch
+  129  man touch
+  130  rm ~/animals/man 
+  131  touch ../animals/cat.txt ../animals/dog.txt ../animals/elephant.txt
+  132  man ls
+  133  stat apple
+  134  ls b*
+  135  ls *a
+  136  ls [bi]*
+  137  ls b* i*
+  138  cp /etc/passwd ~
+  139  cat /etc/issue
+  140  cp /etc/issue apple
+  141  cat apple 
+  142  mv lion ~/animals/
+  143  mv pineaple pineapple
+  144  man wc
+  145  wc -m /etc/passwd
+  146  cd ~
+  147  ln -s /etc/passwd passwd_link
+  148  ls .bash_history history_hard
+  149  ls -l ~/.bash_history 
+  150  ls -l ~/.bash_logout 
+  151  rm fruits/apple 
+  152  mkdir rmme
+  153  rmdir rmme
+  154  rmdir fruits
+  155  rm -fr fruits
+  156  cat /etc/passwd
+  157  cat /etc/passwd /var/log/boot.log 
+  158  cp /etc/init.d/ ~
+  159  cp -r /etc/init.d/ ~
+  160  rm init.d/
+  161  rmdir init.d/
+  162  rm -fr init.d/
+  163  cut -d: -f1 /etc/passwd | sort 
+  164  man column 
+  165  man less
+  166  cut -d: -f1 /etc/passwd | column -ts | less | sort 
+  167  cut -d: -f1 /etc/passwd | column -ts | less
+  168  cut -d: -f1,3,4 /etc/passwd | column -ts | less
+  169  cat /etc/passwd
+  170  cut -d: -f1,3 /etc/passwd | sort 
+  171  grep :/bin/bash /etc/passwd | wc -l
+  172  grep :/bin/bash /etc/passwd | cut -d: -f1 | sort -r
+  173  rpm -qa --qf '%{NAME}: %{SIZE}\n' | sort -rn -k2,2 | head -n 25
+  174  rpm -ql man-db | xargs -l du  2> /dev/null | sort -n
+  175  top -b -n1| sort 
+  176  top -b -n1| sort -k2
+  177  top -b -n1 | tail -n+8 | cut -c7- | tr -s ' ' '\t' | cut -f11,5
+  178  top -b -n1| sort -k1
+  179  top -b -n1| sort -n -k1
+  180  sort -k1 /etc/passwd | tr ":" " "
+  181  sort -k1 /etc/passwd | cut -f1,7
+  182  sort -k1 /etc/passwd | cut -d: -f1,7
+  183  cd /usr/share/doc/git-*
+  184  cd /usr/share/doc/git/
+  185  ls
+  186  man grep
+  187  cat user-manual.txt 
+  188  cat user-manual.txt | tr ' ' '012'
+  189  cat user-manual.txt | tr ' ' '\012'
+  190  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]'
+  191  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]' | sort
+  192  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]' | sort | uniq -c
+  193  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn
+  194  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn | head -5
+  195  cat user-manual.txt | tr -cs '[:alpha:]' '\n'
+  196  cat user-manual.txt | tr -cs '[:alpha:]' '\n' | tr '[:upper:]' '[:lower:]' | sort uniq -c | sort -rn | head -5
+  197  cat user-manual.txt | tr -cs '[:alpha:]' '\n' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn | head -5
+  198  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn | head -5
+  199  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]' | tr -d '[:punct:]' | grep -v '[^a-z]' | sort | uniq -c | sort -rn
+  200  cat user-manual.txt | tr ' ' '\012' | tr '[:upper:]' '[:lower:]' | tr -d '[:punct:]' | grep -v '[^a-z]' | sort | uniq -c | sort -rn | head -5
+  201  cat user-manual.txt | tr -cs '[:alpha:]' '\n' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -rn | head -5
+  202  man fold
+  203  tr '[:lower:]' '[:upper:]' < user-manual.txt | tr -d '[:punct:] \n\t' | fold -w1 | sort | uniq -c | sort -rn | head -5
+  204  man grep
+  205  tr -cs '[:alpha:]' '\n' < user-manual.txt | less
+  206  tr -cs '[:alpha:]' '\n' < user-manual.txt | less | grep -E ........
+  207  tr -cs '[:alpha:]' '\n' < user-manual.txt | less | grep -E ........ | sort | uniq -c | sort -rn | head
+  208  cd 
+  209  ping ya.ru
+  210  curl wttr.in
+  211  hostname -i
+  212  hostname -I
+  213  curl ifconfif.me
+  214  curl ifconfig.me
+  215  sudo id
+  216  id
+  217  sudo less /var/log/messages
+  218  su
+  219  ls
+  220  cd labs/
+  221  ls
+  222  cd .git/
+  223  ls
+  224  cd
+  225  top -b -n1 | sort 
+  226  top -b -n1 | sort -k11
+  227  top -b -n1 | sort -k12
+  228  top -b -n1 
+  229  top -b -n1 | sort -k12
+  230  top -b -n1 | sort -k10
+  231  top -b -n1 | sort -k11
+  232  top -b -n1 | sort -k12
+  233  cd labs/
+  234  cd .git/
+  235  history > lab1_history.txt
