@@ -1,0 +1,11 @@
+.:
+итого 8
+drw-rw-r--. 2 nikita nikita 4096 сен  8 21:48 dir
+-rw-r-----. 1 root   nikita    5 сен  8 21:46 file
+-rw-------. 1 nikita nikita    0 сен  8 21:57 file1
+-rw-rw-rw-. 1 nikita nikita    0 сен  8 21:58 file2
+-rw-rw-rw-. 1 nikita nikita    0 сен  8 22:02 lab2.txt
+
+./dir:
+итого 4
+-rw-rw-r--. 1 nikita nikita 7 сен  8 21:48 new_file
