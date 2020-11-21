@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Каталоги:"
-ls -ld
+ls -ld .*/ */
 echo "Обычные файлы:"
 ls -l | grep ^-
 echo "Символьные ссылки:"
