@@ -1,0 +1,153 @@
+[root@localhost for_labs]# ls -l /dev/sda{,[123]}
+brw-rw----. 1 root disk 8, 0 дек 11 18:38 /dev/sda
+brw-rw----. 1 root disk 8, 1 дек 11 18:38 /dev/sda1
+brw-rw----. 1 root disk 8, 2 дек 11 18:38 /dev/sda2
+[root@localhost for_labs]# cat /proc/diskstats 
+   8       0 sda 59762 15011 6158160 1302207 29287 20261 5009048 3113287 0 477903 4549666 0 0 0 0 5879 134172
+   8       1 sda1 54320 14373 6000034 1195452 18289 10154 4551944 2409470 0 462304 3604923 0 0 0 0 0 0
+   8       2 sda2 5387 638 155770 106489 7290 10107 457104 690064 0 162852 796553 0 0 0 0 0 0
+  11       0 sr0 9 0 4 2 0 0 0 0 0 8 2 0 0 0 0 0 0
+   7       0 loop0 220 0 3760 3 58 0 3068 355 0 288 630 2 0 20480 2 21 268
+[root@localhost for_labs]# cat /proc/devices 
+Character devices:
+  1 mem
+  4 /dev/vc/0
+  4 tty
+  4 ttyS
+  5 /dev/tty
+  5 /dev/console
+  5 /dev/ptmx
+  7 vcs
+ 10 misc
+ 13 input
+ 14 sound
+ 21 sg
+ 29 fb
+116 alsa
+128 ptm
+136 pts
+162 raw
+180 usb
+188 ttyUSB
+189 usb_device
+202 cpu/msr
+203 cpu/cpuid
+226 drm
+241 aux
+242 cec
+243 hidraw
+244 usbmon
+245 bsg
+246 watchdog
+247 ptp
+248 pps
+249 BaseRemoteCtl
+250 rtc
+251 dma_heap
+252 dax
+253 tpm
+254 gpiochip
+
+Block devices:
+  7 loop
+  8 sd
+  9 md
+ 11 sr
+ 65 sd
+ 66 sd
+ 67 sd
+ 68 sd
+ 69 sd
+ 70 sd
+ 71 sd
+128 sd
+129 sd
+130 sd
+131 sd
+132 sd
+133 sd
+134 sd
+135 sd
+253 device-mapper
+254 mdp
+259 blkext
+[root@localhost for_labs]# dd if=/dev/zero of=./fs.img bs=1M count=10
+10+0 записей получено
+10+0 записей отправлено
+10485760 байт (10 MB, 10 MiB) скопирован, 0,0309163 s, 339 MB/s
+[root@localhost for_labs]# losetup --find --show ./fs.img
+/dev/loop0
+[root@localhost for_labs]# mkfs -t ext4 /dev/loop0
+mke2fs 1.45.5 (07-Jan-2020)
+Discarding device blocks: done                            
+Creating filesystem with 10240 1k blocks and 2560 inodes
+Filesystem UUID: d7e56b58-2bb4-4330-a025-9b6daed26354
+Superblock backups stored on blocks: 
+	8193
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+[root@localhost for_labs]# blkid /dev/loop0
+/dev/loop0: UUID="d7e56b58-2bb4-4330-a025-9b6daed26354" BLOCK_SIZE="1024" TYPE="ext4"
+[root@localhost for_labs]# mount /dev/loop0 /mnt
+[root@localhost for_labs]# mount | grep /mnt
+/dev/loop0 on /mnt type ext4 (rw,relatime,seclabel)
+[root@localhost for_labs]# df -h /mnt
+Файловая система Размер Использовано  Дост Использовано% Cмонтировано в
+/dev/loop0         8,7M         172K  7,9M            3% /mnt
+[root@localhost for_labs]# df -hi /mnt
+Файловая система Iнодов IИспользовано IСвободно IИспользовано% Cмонтировано в
+/dev/loop0         2,5K            11      2,5K             1% /mnt
+[root@localhost for_labs]# umount /dev/loop0
+[root@localhost for_labs]# tune2fs -l /dev/loop0
+tune2fs 1.45.5 (07-Jan-2020)
+Filesystem volume name:   <none>
+Last mounted on:          <not available>
+Filesystem UUID:          d7e56b58-2bb4-4330-a025-9b6daed26354
+Filesystem magic number:  0xEF53
+Filesystem revision #:    1 (dynamic)
+Filesystem features:      has_journal ext_attr resize_inode dir_index filetype extent 64bit flex_bg sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+Filesystem flags:         signed_directory_hash 
+Default mount options:    user_xattr acl
+Filesystem state:         clean
+Errors behavior:          Continue
+Filesystem OS type:       Linux
+Inode count:              2560
+Block count:              10240
+Reserved block count:     512
+Free blocks:              8715
+Free inodes:              2549
+First block:              1
+Block size:               1024
+Fragment size:            1024
+Group descriptor size:    64
+Reserved GDT blocks:      79
+Blocks per group:         8192
+Fragments per group:      8192
+Inodes per group:         1280
+Inode blocks per group:   160
+Flex block group size:    16
+Filesystem created:       Fri Dec 11 19:14:02 2020
+Last mount time:          Fri Dec 11 19:14:14 2020
+Last write time:          Fri Dec 11 19:14:33 2020
+Mount count:              1
+Maximum mount count:      -1
+Last checked:             Fri Dec 11 19:14:02 2020
+Check interval:           0 (<none>)
+Lifetime writes:          426 kB
+Reserved blocks uid:      0 (user root)
+Reserved blocks gid:      0 (group root)
+First inode:              11
+Inode size:	          128
+Journal inode:            8
+Default directory hash:   half_md4
+Directory Hash Seed:      078f503b-b35e-40cd-8be5-acfceda0ab4b
+Journal backup:           inode blocks
+Checksum type:            crc32c
+Checksum:                 0xc6745e0f
+[root@localhost for_labs]# losetup --detach /dev/loop0
+[root@localhost for_labs]# losetup --list
+
